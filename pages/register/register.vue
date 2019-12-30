@@ -37,8 +37,10 @@ export default {
   components: {},
   props: {},
   onLoad: function () {
+    // let app = getApp().globalData;
+    // new (getApp().globalData.ToastPannel.ToastPannel)();
     let app = getApp().globalData;
-    new (getApp().globalData.ToastPannel.ToastPannel)();
+		new app.ToastPannel.ToastPannel();
   },
   methods: {
     bindUsername: function (e) {

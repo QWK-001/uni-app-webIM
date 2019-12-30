@@ -14946,7 +14946,7 @@ handleMessage;exports.default = _default;
 
 /***/ }),
 
-/***/ 273:
+/***/ 275:
 /*!************************************************************************************************************!*\
   !*** /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni/comps/chat/inputbar/suit/audio/record_status.js ***!
   \************************************************************************************************************/
@@ -15110,92 +15110,6 @@ module.exports = {
   }
   return protobuf;
 });
-
-/***/ }),
-
-/***/ 288:
-/*!*************************************************************************************************************!*\
-  !*** /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni/comps/chat/msglist/type/audio/audioCtxFactory.js ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
- // 每一个音频消息都有自己的 ctx。
-// 可以有多个 ctx，每次播放都能知道是哪个 ctx 在调用，从而让其他的 ctx pause。
-// 消息销毁，记得处理 ctx。
-// 主要是同步跨 ctx 的操作，保证只有一个 ctx 播放
-var allCtx = {};
-var inUseCtx = null;
-var allComm = {};
-
-function proxier(ctx) {
-  var __play__ = ctx.play;
-  var __pause__ = ctx.pause;
-  ctx.play = playProxier;
-  ctx.pause = pauseProxier;
-
-  function playProxier() {
-    // 如果正在播放的不是自己，暂停
-    if (inUseCtx && inUseCtx != this) {
-      inUseCtx.pause();
-    }
-
-    __play__.call(this);
-
-    inUseCtx = this;
-  }
-
-  function pauseProxier() {
-    // 只有是自己才 pause
-    if (inUseCtx == this) {
-      __pause__.call(this);
-    }
-  }
-}
-
-module.exports = {
-  getCtx: function getCtx(mid) {
-    var returnCtx = allCtx[mid];
-
-    if (!returnCtx) {
-      returnCtx = wx.createInnerAudioContext();
-      allCtx[mid] = returnCtx;
-      proxier(returnCtx);
-    }
-
-    return returnCtx;
-  },
-
-  getAllCtx: function getAllCtx() {
-    wx.setStorageSync("allCtx", JSON.stringify(Object.keys(allCtx)));
-    return allCtx;
-  },
-
-  getCommponet: function getCommponet(mid, comm) {
-    var curComm = allComm[mid];
-
-    if (!curComm) {
-      allComm[mid] = comm;
-    }
-
-    return allComm;
-  } };
-
-/***/ }),
-
-/***/ 289:
-/*!********************************************************************************************************!*\
-  !*** /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni/comps/chat/msglist/type/audio/playStatus.js ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-module.exports = {
-  PLAYING: "playing",
-  PAUSE: "pause",
-  STOP: "stop" };
 
 /***/ }),
 
@@ -15675,6 +15589,92 @@ Writer._configure = function () {
   base64 = __webpack_require__(/*! ./base64 */ 39);
   utf8 = __webpack_require__(/*! ./utf8 */ 40);
 };
+
+/***/ }),
+
+/***/ 290:
+/*!*************************************************************************************************************!*\
+  !*** /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni/comps/chat/msglist/type/audio/audioCtxFactory.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+ // 每一个音频消息都有自己的 ctx。
+// 可以有多个 ctx，每次播放都能知道是哪个 ctx 在调用，从而让其他的 ctx pause。
+// 消息销毁，记得处理 ctx。
+// 主要是同步跨 ctx 的操作，保证只有一个 ctx 播放
+var allCtx = {};
+var inUseCtx = null;
+var allComm = {};
+
+function proxier(ctx) {
+  var __play__ = ctx.play;
+  var __pause__ = ctx.pause;
+  ctx.play = playProxier;
+  ctx.pause = pauseProxier;
+
+  function playProxier() {
+    // 如果正在播放的不是自己，暂停
+    if (inUseCtx && inUseCtx != this) {
+      inUseCtx.pause();
+    }
+
+    __play__.call(this);
+
+    inUseCtx = this;
+  }
+
+  function pauseProxier() {
+    // 只有是自己才 pause
+    if (inUseCtx == this) {
+      __pause__.call(this);
+    }
+  }
+}
+
+module.exports = {
+  getCtx: function getCtx(mid) {
+    var returnCtx = allCtx[mid];
+
+    if (!returnCtx) {
+      returnCtx = wx.createInnerAudioContext();
+      allCtx[mid] = returnCtx;
+      proxier(returnCtx);
+    }
+
+    return returnCtx;
+  },
+
+  getAllCtx: function getAllCtx() {
+    wx.setStorageSync("allCtx", JSON.stringify(Object.keys(allCtx)));
+    return allCtx;
+  },
+
+  getCommponet: function getCommponet(mid, comm) {
+    var curComm = allComm[mid];
+
+    if (!curComm) {
+      allComm[mid] = comm;
+    }
+
+    return allComm;
+  } };
+
+/***/ }),
+
+/***/ 291:
+/*!********************************************************************************************************!*\
+  !*** /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni/comps/chat/msglist/type/audio/playStatus.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+module.exports = {
+  PLAYING: "playing",
+  PAUSE: "pause",
+  STOP: "stop" };
 
 /***/ }),
 
@@ -27012,7 +27012,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 75:
+/***/ 77:
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
   \********************************************************************/

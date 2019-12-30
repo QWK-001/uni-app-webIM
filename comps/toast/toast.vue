@@ -40,6 +40,7 @@
 </template> -->
 </template>
 
+<script>
 let _compData = {
   '_toast_.isHide': false,
   // 控制组件显示隐藏
@@ -91,6 +92,8 @@ function ToastPannel() {
 
 module.exports = {
   ToastPannel
-};<style>
+}
+</script>
+<style>
 @import "./toast.css";
 </style>

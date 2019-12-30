@@ -167,8 +167,11 @@ export default {
 
   onLoad(option) {
     const me = this;
-    const app = getApp().globalData;
-    new (getApp().globalData.ToastPannel.ToastPannel)(); //监听加好友申请
+    // const app = getApp().globalData;
+    // new (getApp().globalData.ToastPannel.ToastPannel)(); //监听加好友申请
+
+     let app = getApp().globalData;
+		new app.ToastPannel.ToastPannel();
 
     disp.on("em.xmpp.subscribe", function () {
       me.setData({
