@@ -1,0 +1,48 @@
+miniprogram to uni-app 转换日志
+
+---基本信息---
+时间: 2019-12-26 11:25:03
+语言: Javascript
+转换模式: Hbuilder X
+是否转换wxs文件: true
+
+---小程序基本信息---
+name: 环信即时通讯云
+version: 
+description: 
+appid: wx382c2b02d8bb6bcf
+projectname: 
+compileType: miniprogram
+author: 
+
+---目录信息---
+sourceFolder: /Users/lr/Documents/work/webim-weixin-xcx-ectype
+targetFolder: /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni
+outputFolder: /Users/lr/Documents/work/webim-weixin-xcx-ectype_uni
+miniprogramRoot: /Users/lr/Documents/work/webim-weixin-xcx-ectype/src
+
+---日志信息---
+[命名替换]:  id  -->  idAttr    file: src/comps/chat/msglist/msglist.wxml
+[绑定值命名替换]:  {{ item.msg.data }}  -->  {{item.msg.data}}    file: src/comps/chat/msglist/msglist.wxml
+[命名替换]:  id  -->  idAttr    file: src/pages/main/main.wxml
+template里data属性包含...扩展运算符时，不支持转换(因uni-app还不支持v-bind="")，请预先手动修改:     data--> {{ ..._toast_ }}    file--> pages/add_new/add_new.wxml
+因uni-app不支持动态组件，已注释代码，请手动修改。    code--> <component :item="item" :is="item.msg.type"></component>    file--> comps/chat/msglist/msglist.wxml
+因uni-app不支持动态组件，已注释代码，请手动修改。    code--> <component :item="item" :is="item.type"></component>    file--> comps/chat/msglist/msglist.wxml
+template里data属性包含...扩展运算符时，不支持转换(因uni-app还不支持v-bind="")，请预先手动修改:     data--> {{ ..._toast_ }}    file--> pages/register/register.wxml
+template里data属性包含...扩展运算符时，不支持转换(因uni-app还不支持v-bind="")，请预先手动修改:     data--> {{ ..._toast_ }}    file--> pages/login/login.wxml
+template里data属性包含...扩展运算符时，不支持转换(因uni-app还不支持v-bind="")，请预先手动修改:     data--> {{ ..._toast_ }}    file--> pages/login_token/login_token.wxml
+template里data属性包含...扩展运算符时，不支持转换(因uni-app还不支持v-bind="")，请预先手动修改:     data--> {{ ..._toast_ }}    file--> pages/main/main.wxml
+
+转换完成: 
+耗时：6754ms
+当前转换模式：【Hbuilder X】，生成HbuilderX项目。
+优点：上手快，项目结构较简单；
+缺点：资源路径会因为表达式而无法全部被修复(需手动修复)
+
+注意：
+1.当看到"image漏网之鱼"，意味着您"可能"需要手动调整对应代码(以实际编译运行为准)，当image标签的src属性是含变量或表达式，工具还无法做到100%转换，需要手动修改为相对/static目录的路径
+2.代码<template is="abc" data=""/>里data属性，除了不支持...扩展运算符(因uni-app现在还不支持v-bind="")，其余参数形式都支持，望知悉！
+
+日志说明：
+1. image漏网之鱼 --> 为HbuilderX模式时，需要将资源移动到static，并且修复相应文件路径，有可能src为网络文件，有可能为变量或表达式，可能会导致转换后文件找不到，因此提示一下
+2. 命名替换 --> 小程序里对于属性名基本没什么限制，如data、id都能做属性名，data下面的变量和函数名还能重名，但这些在uni-app里是不支持的，因此做了相关替换，并记录日志，也许组件在外部调用时，函数名被改而因此报错时，请查看此文档

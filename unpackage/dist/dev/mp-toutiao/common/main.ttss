@@ -1,0 +1,228 @@
+.toast_content_box {  
+  display: -webkit-box;  
+  display: -webkit-flex;  
+  display: flex;  
+  width: 100%;   
+  -webkit-box-pack: center;   
+  -webkit-justify-content: center;   
+          justify-content: center;  
+  -webkit-box-align: center;  
+  -webkit-align-items: center;  
+          align-items: center;  
+  position: fixed;  
+  z-index: 999; 
+  top: 0;
+  left: 0;
+}
+.toast_content {  
+	width: 80%;
+	padding: 30rpx; 
+	border-radius: 10rpx;
+	height: 88rpx;
+	box-sizing:border-box;
+	overflow: hidden;
+	box-shadow: 0 8rpx 16rpx #BABABA;
+	background-color: #fff;
+}
+.toast_content_border{
+	width: 0px;
+	height: 80rpx;
+	border: 4rpx solid #CE3918;
+	position: relative;
+	left: -30rpx;
+	top: -30rpx;
+}
+.toast_success {
+	border: 4rpx solid #179F52;
+}
+.toast_content_icon{
+	width: 30rpx;
+	height: 30rpx;
+	position: relative;
+	top: -96rpx;
+}
+.toast_icon_img{
+	width: 30rpx;
+	height: 30rpx;
+}
+.toast_content_text {  
+  	height:100%;
+	width:100%;
+	color:#000;
+	font-size:28rpx;
+	text-align:center;
+	display:;
+	float:right;
+	position:absolute;
+	top:0;
+	line-height:88rpx;
+	text-align:left;
+	padding-left:50rpx;
+}
+
+.toast_content_box {  
+  display: -webkit-box;  
+  display: -webkit-flex;  
+  display: flex;  
+  width: 100%;   
+  -webkit-box-pack: center;   
+  -webkit-justify-content: center;   
+          justify-content: center;  
+  -webkit-box-align: center;  
+  -webkit-align-items: center;  
+          align-items: center;  
+  position: fixed;  
+  z-index: 999; 
+  top: 0;
+  left: 0;
+}
+.toast_content {  
+	width: 80%;
+	padding: 30rpx; 
+	border-radius: 10rpx;
+	height: 88rpx;
+	box-sizing:border-box;
+	overflow: hidden;
+	box-shadow: 0 8rpx 16rpx #BABABA;
+	background-color: #fff;
+}
+.toast_content_border{
+	width: 0px;
+	height: 80rpx;
+	border: 4rpx solid #CE3918;
+	position: relative;
+	left: -30rpx;
+	top: -30rpx;
+}
+.toast_success {
+	border: 4rpx solid #179F52;
+}
+.toast_content_icon{
+	width: 30rpx;
+	height: 30rpx;
+	position: relative;
+	top: -96rpx;
+}
+.toast_icon_img{
+	width: 30rpx;
+	height: 30rpx;
+}
+.toast_content_text {  
+  	height:100%;
+	width:100%;
+	color:#000;
+	font-size:28rpx;
+	text-align:center;
+	display:;
+	float:right;
+	position:absolute;
+	top:0;
+	line-height:88rpx;
+	text-align:left;
+	padding-left:50rpx;
+}
+.container {
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	padding: 200rpx 0;
+	box-sizing: border-box;
+}
+.f {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.f-row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+}
+page {
+	width: 100%;
+}
+.em-unread-spot {
+	width: 32rpx;
+	height: 32rpx;
+	background-color: red;
+	position: relative;
+	border-radius: 50%;
+	left: 110rpx;
+	top: 4rpx;
+	color: #fff;
+	font-size: 24rpx;
+	text-align: center;
+	line-height: 32rpx;
+}
+.em-unread-spot-litleFont {
+	font-size: 16rpx;
+}
+.chatRoom_tab {
+	width: 100%;
+	height: 94rpx;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	border-top: 1px solid rgba(173,185,193,0.5);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+}
+.chatRoom_tab_X {
+	width: 100%;
+	height: 142rpx;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	border-top: 1px solid rgba(173,185,193,0.5);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+}
+.tableBar{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+}
+.tableBar text{
+	font-size:10px;
+	text-align:center;
+	width:100%;
+	display:block;
+	color: #666666;
+}
+.tableBar .activeText{
+	color: #085AB8;
+}
+.tableBar image {
+	width: 48rpx;
+	height: 48rpx;
+	margin: auto;
+	display: block;
+	margin-top: 12rpx;
+}
+.tableBar .haveSpot{
+	margin-top: -24rpx;
+}
+

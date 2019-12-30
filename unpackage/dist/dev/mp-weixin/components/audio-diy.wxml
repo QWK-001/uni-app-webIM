@@ -1,0 +1,1 @@
+<audio src="{{item.msg.url}}" controls autoplay></audio>
