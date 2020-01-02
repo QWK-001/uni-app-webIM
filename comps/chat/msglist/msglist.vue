@@ -18,12 +18,14 @@
 				<image v-if="item.style == 'self'" src="../../../static/images/poprightarrow@2x.png" class="msg_poprightarrow"></image>
 				<image v-if="item.style == ''" src="../../../static/images/popleftarrow@2x.png" class="msg_popleftarrow"></image>
 				<view v-if="item.msg.type == 'img' || item.msg.type == 'video'">
-					<!--uni-app不支持动态组件，因此注释下行代码。请手动修改为显式声明组件<component :item="item" :is="item.msg.type"></component>-->
+					<!--uni-app不支持动态组件，因此注释下行代码。请手动修改为显式声明组件
+<component :item="item" :is="item.msg.type"></component>-->
 				</view>
 				<audio-msg v-if="item.msg.type == 'audio'" :msg="item"></audio-msg>
 				<view v-else-if="item.msg.type == 'txt' || item.msg.type == 'emoji'">
 					<view class="template" v-for="(item, index2) in item.msg.data" :key="index2">
-						<!--uni-app不支持动态组件，因此注释下行代码。请手动修改为显式声明组件<component :item="item" :is="item.type"></component>-->
+						<!--uni-app不支持动态组件，因此注释下行代码。请手动修改为显式声明组件
+<component :item="item" :is="item.type"></component>-->
 					</view>
 				</view>
 			</view>
@@ -83,7 +85,7 @@ export default {
     this.__visibility__ = false;
   },
 
-  mounted(event) {
+  onReady(event) {
     let me = this;
 
     if (getApp().globalData.isIPX) {

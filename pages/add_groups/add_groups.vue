@@ -4,7 +4,7 @@
 	<!-- 群组名称 -->
 	<view class="create_input">
 		<view>
-			<input @input="getGroupName" placeholder="群名称" placeholder-style="color:#CFCFCF;line-height:20px;font-size:12px;" auto-focus></input>
+			<input @input="getGroupName" placeholder="群名称" placeholder-style="color:#CFCFCF;line-height:20px;font-size:12px;" auto-focus>
 		</view>
 	</view>
 	<!-- 群简介 -->

@@ -2,7 +2,7 @@
 <view class="audio-player" @tap="audioPlay" :style="'opacity: ' + opcity">
 	<text class="time">语音消息 {{ time }}</text>
 	<view class="controls play-btn" @tap="audioPlay">
-		<image :src="(style == 'self'? '../../../../../images/voicemsgmy.png' : '../../../../../images/voicemsg.png')"></image>
+		<image :src="(style == 'self'? '../../../../../static/images/voicemsgmy.png' : '../../../../../static/images/voicemsg.png')"></image>
 	</view>
 	<!-- <view
 		class="controls pause-btn"
@@ -54,7 +54,7 @@ export default {
   moved() {},
 
   destroyed() {
-    let audioCtx = this.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid);
+    let audioCtx = this.$data.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid);
     this.audioPause(audioCtx);
     this.delEvent(); //audioCtx.destroy();
   },
@@ -62,7 +62,7 @@ export default {
   mounted() {
     let self = this;
     let curl = '';
-    let audioCtx = this.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid);
+    let audioCtx = this.$data.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid);
     audioCtx.autoplay = false;
     audioCtx.loop = false; //
 
@@ -124,7 +124,7 @@ export default {
   methods: {
     audioPlay() {
       wx.inter && clearInterval(wx.inter);
-      let audioCtx = this.__comps__.audioCtx;
+      let audioCtx = this.$data.__comps__.audioCtx;
       var curl = '';
       wx.downloadFile({
         url: this.msg.msg.data,
@@ -154,13 +154,13 @@ export default {
     },
 
     audioPause(auCtx) {
-      //let audioCtx = this.data.__comps__.audioCtx;
-      let audioCtx = this.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid) || auCtx;
+      //let audioCtx = this.data.$data.__comps__.audioCtx;
+      let audioCtx = this.$data.__comps__.audioCtx = audioCtxFc.getCtx(this.msg.mid) || auCtx;
       audioCtx && audioCtx.pause();
     },
 
     addEvent() {
-      let audioCtx = this.__comps__.audioCtx;
+      let audioCtx = this.$data.__comps__.audioCtx;
       audioCtx.onPlay(this.onPlaying);
       audioCtx.onPause(this.onPause);
       audioCtx.onWaiting(this.onPause);
@@ -171,7 +171,7 @@ export default {
     },
 
     delEvent() {
-      let audioCtx = this.__comps__.audioCtx;
+      let audioCtx = this.$data.__comps__.audioCtx;
       audioCtx.offPlay(this.onPlaying);
       audioCtx.offPause(this.onPause);
       audioCtx.offWaiting(this.onPause);

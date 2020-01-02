@@ -18,7 +18,7 @@
     <view class="invite-member">
         <text class="pd-10 invite-title">邀请群成员</text>
         <view class="invite-wrap">
-            <input placeholder="用户名" @input="addFriendNameFun" placeholder-style="color:#CFCFCF;line-height:40px;font-size:14px;" auto-focus></input>
+            <input placeholder="用户名" @input="addFriendNameFun" placeholder-style="color:#CFCFCF;line-height:40px;font-size:14px;" auto-focus>
             <button type="primary" @tap="addGroupMembers">邀请</button>
         </view>
     </view>

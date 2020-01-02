@@ -49,9 +49,9 @@ export default {
   beforeMount() {},
 
   mounted() {
-    this.__comps__.inputbar = this.selectComponent("#chat-inputbar");
-    this.__comps__.msglist = this.selectComponent("#chat-msglist");
-    this.__comps__.audio = this.selectComponent("#chat-suit-audio");
+    this.$data.__comps__.inputbar = this.selectComponent("#chat-inputbar");
+    this.$data.__comps__.msglist = this.selectComponent("#chat-msglist");
+    this.$data.__comps__.audio = this.selectComponent("#chat-suit-audio");
   },
 
   moved() {},
@@ -60,23 +60,23 @@ export default {
 
   methods: {
     toggleRecordModal() {
-      this.__comps__.audio.toggleRecordModal();
+      this.$data.__comps__.audio.toggleRecordModal();
     },
 
     normalScroll() {
-      this.__comps__.msglist.normalScroll();
+      this.$data.__comps__.msglist.normalScroll();
 
-      this.__comps__.inputbar.cancelEmoji();
+      this.$data.__comps__.inputbar.cancelEmoji();
     },
 
     shortScroll() {
-      this.__comps__.msglist.shortScroll();
+      this.$data.__comps__.msglist.shortScroll();
     },
 
     saveSendMsg(evt) {
       msgStorage.saveMsg(evt.detail.msg, evt.detail.type);
 
-      this.__comps__.inputbar.cancelEmoji();
+      this.$data.__comps__.inputbar.cancelEmoji();
     },
 
     getMore() {

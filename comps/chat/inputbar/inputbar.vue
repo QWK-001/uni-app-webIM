@@ -11,7 +11,7 @@
 			<image src="../../../images/Emoji.png"/>
 		</view> -->
 		<view class="v-record" @tap="toggleRecordModal">
-			<image class="icon-record" :src="( recordStatus != RecordStatus.HIDE ? '../../../images/iconAudioActive@2x.png' : '../../../images/voice.png' )" style="width:16px; height: 24px"></image>
+			<image class="icon-record" v-bind:src="( recordStatus != RecordStatus.HIDE ? '../../../static/images/iconAudioActive@2x.png' : '../../../static/images/voice.png' )" style="width:16px; height: 24px"></image>
 		</view>
 		<view class="open_camera" @tap="openCamera">
 			<image src="../../../static/images/camora.png" style="width:24px; height: 18px"></image>
@@ -77,10 +77,13 @@ export default {
   destroyed() {},
 
   mounted() {
+    debugger
     this.setData({
       isIPX: getApp().globalData.isIPX
     });
-    let comps = this.__comps__;
+    console.log('this>>',this);
+    
+    let comps = this.$data.__comps__;
     comps.main = this.selectComponent("#chat-suit-main");
     comps.emoji = this.selectComponent("#chat-suit-emoji");
     comps.image = this.selectComponent("#chat-suit-image"); // comps.location = this.selectComponent("#chat-suit-location");
@@ -100,26 +103,26 @@ export default {
     // 	this.data.__comps__.video.sendVideo();
     // },
     openCamera() {
-      this.__comps__.image.openCamera();
+      this.$data.__comps__.image.openCamera();
     },
 
     openEmoji() {
-      this.__comps__.emoji.openEmoji();
+      this.$data.__comps__.emoji.openEmoji();
     },
 
     cancelEmoji() {
-      this.__comps__.emoji.cancelEmoji();
+      this.$data.__comps__.emoji.cancelEmoji();
     },
 
     sendImage() {
-      this.__comps__.image.sendImage();
+      this.$data.__comps__.image.sendImage();
     },
 
-    sendLocation() {// this.data.__comps__.location.sendLocation();
+    sendLocation() {// this.data.$data.__comps__.location.sendLocation();
     },
 
     emojiAction(evt) {
-      this.__comps__.main.emojiAction(evt.detail.msg);
+      this.$data.__comps__.main.emojiAction(evt.detail.msg);
     },
 
     setData: function (obj, callback) {

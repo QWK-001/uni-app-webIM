@@ -9,7 +9,7 @@
 <view class="search_input" v-if="search_friend">
 	<view>
 		<icon type="search" size="13"></icon>
-		<input placeholder="搜索" placeholder-style="color:#CFCFCF;line-height:20px;font-size:12px;" auto-focus></input>
+		<input placeholder="搜索" placeholder-style="color:#CFCFCF;line-height:20px;font-size:12px;" auto-focus>
 	</view>
 	<text @tap="cancel">取消</text>
 </view>
